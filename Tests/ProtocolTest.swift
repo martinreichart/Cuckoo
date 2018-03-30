@@ -154,6 +154,15 @@ class ProtocolTest: XCTestCase {
         XCTAssertTrue(called)
         verify(mock).withLabelAndUnderscore(labelA: anyString(), anyString())
     }
+
+    func testWithImplicitlyUnwrappedOptional() {
+        stub(mock) { mock in
+            when(mock.withImplicitlyUnwrappedOptional(i: anyInt())).thenReturn("test")
+        }
+
+        XCTAssertEqual(mock.withImplicitlyUnwrappedOptional(i: 5), "test")
+        verify(mock).withImplicitlyUnwrappedOptional(i: equal(to: 5))
+    }
     
     private enum TestError: Error {
         case unknown

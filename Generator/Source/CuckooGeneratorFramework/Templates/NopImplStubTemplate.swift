@@ -1,3 +1,12 @@
+//
+//  NopImplStubTemplate.swift
+//  CuckooGeneratorFramework
+//
+//  Created by Tadeas Kriz on 11/14/17.
+//
+
+extension Templates {
+    static let noImplStub = """
 {{container.accessibility}} class {{ container.name }}Stub: {{ container.name }} {
     {% for property in container.properties %}
     {{ property.accessibility }}{% if container.@type == "ClassDeclaration" %} override{% endif %} var {{ property.name }}: {{ property.type }} {
@@ -19,8 +28,10 @@
     {% endfor %}
 
     {% for method in container.methods %}
-    {{ method.accessibility }}{% if container.@type == "ClassDeclaration" %} override{% endif %} func {{ method.name }}({{ method.parameterSignature }}) {{ method.returnSignature }} {
+    {{ method.accessibility }}{% if container.@type == "ClassDeclaration" and method.isOverriding %} override{% endif %} func {{ method.name }}({{ method.parameterSignature }}) {{ method.returnSignature }} {
         return DefaultValueRegistry.defaultValue(for: {{method.returnType}}.self)
     }
     {% endfor %}
+}
+"""
 }

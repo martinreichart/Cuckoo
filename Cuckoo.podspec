@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Cuckoo"
-  s.version          = "0.10.2"
+  s.version          = "0.11.1"
   s.summary          = "Cuckoo - first boilerplate-free Swift mocking framework."
   s.description      = <<-DESC
                         Cuckoo is a mocking framework with an easy to use API (inspired by Mockito).
@@ -21,9 +21,10 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target      = '9.0'
   s.source_files                = ['Source/**/*.swift']
   s.preserve_paths              = ['Generator/**/*', 'run', 'build_generator']
+  generator_name                = 'cuckoo_generator'
   s.prepare_command             = <<-CMD
-                                    git submodule update --init --recursive
-                                    ./build_generator
+                                    curl -Lo #{generator_name} https://github.com/Brightify/Cuckoo/releases/download/#{s.version}/#{generator_name}
+                                    chmod +x #{generator_name}
                                 CMD
   s.frameworks                  = 'XCTest', 'Foundation'
   s.requires_arc                = true

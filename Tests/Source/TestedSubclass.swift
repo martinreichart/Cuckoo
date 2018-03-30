@@ -11,8 +11,24 @@ class TestedSubclass: TestedClass, TestedProtocol {
         super.init()
     }
 
+    required init(test: String) {
+        super.init()
+    }
+
     required init(labelA a: String, _ b: String) {
         super.init()
+    }
+
+    init(notRequired: Bool) {
+        super.init()
+    }
+
+    convenience init(convenient: Bool) {
+        self.init(notRequired: convenient)
+    }
+
+    func withImplicitlyUnwrappedOptional(i: Int!) -> String {
+        return ""
     }
 
     // Should not be conflicting in mocked class
@@ -32,27 +48,43 @@ class TestedSubclass: TestedClass, TestedProtocol {
         return 1
     }
     
-    func withClosureAndParam(_ a: String, closure: ((String)) -> Int) -> Int {
+    func withClosureAndParam(_ a: String, closure: (String) -> Int) -> Int {
         return 0
     }
     
-    func withMultClosures(closure: ((String)) -> Int, closureB: ((String)) -> Int, closureC: ((String)) -> Int) -> Int {
+    func withMultClosures(closure: ((String)) -> Int, closureB: (String) -> Int, closureC: (String) -> Int) -> Int {
         return 0
     }
     
-    func withThrowingClosure(closure: ((String)) throws -> String?) -> String? {
+    func withThrowingClosure(closure: (String) throws -> String?) -> String? {
         return nil
     }
     
-    func withThrowingClosureThrows(closure: ((String)) throws -> String?) throws -> String? {
+    func withThrowingClosureThrows(closure: (String) throws -> String?) throws -> String? {
         return nil
     }
     
-    func withThrowingEscapingClosure(closure: @escaping ((String)) throws -> String?) -> String? {
+    func withThrowingEscapingClosure(closure: @escaping (String) throws -> String?) -> String? {
         return nil
     }
     
-    func withThrowingOptionalClosureThrows(closure: (((String)) throws -> String?)?) throws -> String? {
+    func withThrowingOptionalClosureThrows(closure: ((String) throws -> String?)?) throws -> String? {
         return nil
     }
+
+    func methodWithParameter(_ param: String) -> String {
+        return "b"
+    }
+
+    func methodWithParameter(_ param: Int) -> String {
+        return "c"
+    }
+}
+
+class TestedSubSubClass: TestedSubclass {
+
+    func subSubMethod() -> String? {
+        return nil
+    }
+    
 }

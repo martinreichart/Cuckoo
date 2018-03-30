@@ -26,7 +26,7 @@ class TestedClass {
     }
     
     func count(characters: String) -> Int {
-        return characters.characters.count
+        return characters.count
     }
     
     func withThrows() throws -> Int {
@@ -49,6 +49,10 @@ class TestedClass {
     }
 
     func withLabelAndUnderscore(labelA a: String, _ b: String) {
+    }
+
+    func callingCountCharactersMethodWithHello() -> Int {
+        return count(characters: "Hello")
     }
 
     // How to test for the absence of all these?
@@ -106,7 +110,7 @@ public class PublicTestedClass {
     }
 
     func count(characters: String) -> Int {
-        return characters.characters.count
+        return characters.count
     }
 
     func withThrows() throws -> Int {
@@ -147,7 +151,7 @@ public class PublicPublicTestedClass {
     }
 
     public func count(characters: String) -> Int {
-        return characters.characters.count
+        return characters.count
     }
 
     public func withThrows() throws -> Int {

@@ -1,7 +1,17 @@
 # Changelog
 
+## 0.11.0
+
+* Added contribution guide.
+* **BREAKING CHANGE**: Spies were reworked. They now use superclasses as their victims if enabled. Please see the Readme for more information.
+* **BREAKING CHANGE**: Verification of properties' `get` is now a method you have to call, instead of a property. This change was made to remove the "unused result" warning.  [bug #141](https://github.com/Brightify/Cuckoo/issues/141)
+
 ## 0.10.2
 * Double the maximum parameters in `call` and `callThrows` methods. [bug #145](https://github.com/Brightify/Cuckoo/issues/145)
+* Make the generator deterministic by sorting input files.
+    * [bug #157](https://github.com/Brightify/Cuckoo/issues/157)
+    * [PR #158 - kudos to IanKeen](https://github.com/Brightify/Cuckoo/pull/158)
+* Add `equalTo` for `Array` and `Set` where `Element` is `Equatable`.
 
 ## 0.10.1
 * Fixed some errors with getters [bug #151](https://github.com/Brightify/Cuckoo/issues/151)

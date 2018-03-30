@@ -15,7 +15,7 @@ class StubFunctionTest: XCTestCase {
         let mock = MockTestedClass()
         stub(mock) { mock in
             when(mock.count(characters: "a")).then {
-                return $0.characters.count * 2
+                return $0.count * 2
             }
         }
         
@@ -32,7 +32,7 @@ class StubFunctionTest: XCTestCase {
     }
     
     func testThenCallRealImplementation() {
-        let mock = MockTestedClass().spy(on: TestedClass())
+        let mock = MockTestedClass().withEnabledSuperclassSpy()
         stub(mock) { mock in
             when(mock.count(characters: "a")).thenCallRealImplementation()
         }
