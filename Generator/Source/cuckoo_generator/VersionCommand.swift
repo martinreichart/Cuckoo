@@ -8,7 +8,6 @@
 
 import Foundation
 import Commandant
-import Result
 
 public struct VersionCommand: CommandProtocol {
 

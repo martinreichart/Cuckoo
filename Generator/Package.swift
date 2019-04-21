@@ -9,10 +9,10 @@ let package = Package(
 
     ],
     dependencies: [
-        .package(url: "https://github.com/jpsim/SourceKitten.git", .upToNextMinor(from: "0.21.2")),
-        .package(url: "https://github.com/TadeasKriz/FileKit.git", .branch("develop")),
-        .package(url: "https://github.com/kylef/Stencil.git", from: "0.9.0"),
-        .package(url: "https://github.com/Carthage/Commandant.git", from: "0.12.0")
+        .package(url: "https://github.com/jpsim/SourceKitten.git", .upToNextMinor(from: "0.23.0")),
+        .package(url: "https://github.com/nvzqz/FileKit.git", .branch("develop")),
+        .package(url: "https://github.com/kylef/Stencil.git", from: "0.13.0"),
+        .package(url: "https://github.com/Carthage/Commandant.git", from: "0.17.0")
         ],
     targets: [
         .target(name: "CuckooGeneratorFramework", dependencies: [
